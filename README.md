@@ -1,24 +1,27 @@
-# README
+# Stock App
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Database Design
+==== users ====
+role: admin/trade
+has_many :transactions
+has_many :stocks
 
-Things you may want to cover:
+==== transactions ====
+user_id
+action: buy/sell
+status: fail/success
+amount: 0
+created_at
+belongs_to :users
+has_one :stocks
 
-* Ruby version
+==== stocks ====
+name
+price
+transaction_id
+user_id
+belongs_to :users
 
-* System dependencies
+==== market ====
+has_many :stocks
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
